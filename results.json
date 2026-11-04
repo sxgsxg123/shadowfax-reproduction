@@ -1,0 +1,124 @@
+{
+  "environment": {
+    "upstream_url": "https://github.com/vincentvbh/shadowfax",
+    "upstream_commit": "20d9d2e60487d317d38f9e4070dde16630beeb1b",
+    "patch_sha256": "a760d42d766dc396a555b5a2bd29dbfdc97141446a21011a28bd61dc94957e49",
+    "run_time_china": "2026-11-03T12:37:12.501864+08:00",
+    "windows": "Windows-11-10.0.26100-SP0",
+    "cpu": "Intel(R) Core(TM) i7-14700T",
+    "gcc": "gcc.exe (Rev6, Built by MSYS2 project) 16.2.0",
+    "make": "GNU Make 4.4.1"
+  },
+  "configs": {
+    "mlkem_GandalfFalcon": {
+      "tests": {
+        "test_dh_akem": "passed (2048 valid; 4096 and 2048 negative checks)",
+        "test_pq_akem": "passed (2048 valid; 4096 and 2048 negative checks)",
+        "test_h_akem": "passed (2048 valid; 4096 and 2048 negative checks)"
+      },
+      "sizes": {
+        "public_key_bytes": 1728,
+        "secret_key_bytes": 3712,
+        "ciphertext_bytes": 2076
+      },
+      "trials": [
+        {
+          "public_key_bytes": 1728,
+          "secret_key_bytes": 3712,
+          "ciphertext_bytes": 2076,
+          "keygen_kcycles": 4303,
+          "encap_kcycles": 684,
+          "decap_kcycles": 258
+        },
+        {
+          "public_key_bytes": 1728,
+          "secret_key_bytes": 3712,
+          "ciphertext_bytes": 2076,
+          "keygen_kcycles": 4015,
+          "encap_kcycles": 654,
+          "decap_kcycles": 262
+        },
+        {
+          "public_key_bytes": 1728,
+          "secret_key_bytes": 3712,
+          "ciphertext_bytes": 2076,
+          "keygen_kcycles": 4162,
+          "encap_kcycles": 776,
+          "decap_kcycles": 315
+        }
+      ],
+      "summary": {
+        "keygen_kcycles": {
+          "median": 4162,
+          "minimum": 4015,
+          "maximum": 4303
+        },
+        "encap_kcycles": {
+          "median": 684,
+          "minimum": 654,
+          "maximum": 776
+        },
+        "decap_kcycles": {
+          "median": 262,
+          "minimum": 258,
+          "maximum": 315
+        }
+      }
+    },
+    "BAT_GandalfMitaka": {
+      "tests": {
+        "test_dh_akem": "passed (2048 valid; 4096 and 2048 negative checks)",
+        "test_pq_akem": "passed (2048 valid; 4096 and 2048 negative checks)",
+        "test_h_akem": "passed (2048 valid; 4096 and 2048 negative checks)"
+      },
+      "sizes": {
+        "public_key_bytes": 1449,
+        "secret_key_bytes": 5033,
+        "ciphertext_bytes": 1781
+      },
+      "trials": [
+        {
+          "public_key_bytes": 1449,
+          "secret_key_bytes": 5033,
+          "ciphertext_bytes": 1781,
+          "keygen_kcycles": 9496,
+          "encap_kcycles": 1056,
+          "decap_kcycles": 372
+        },
+        {
+          "public_key_bytes": 1449,
+          "secret_key_bytes": 5033,
+          "ciphertext_bytes": 1781,
+          "keygen_kcycles": 8961,
+          "encap_kcycles": 781,
+          "decap_kcycles": 319
+        },
+        {
+          "public_key_bytes": 1449,
+          "secret_key_bytes": 5033,
+          "ciphertext_bytes": 1781,
+          "keygen_kcycles": 8578,
+          "encap_kcycles": 779,
+          "decap_kcycles": 321
+        }
+      ],
+      "summary": {
+        "keygen_kcycles": {
+          "median": 8961,
+          "minimum": 8578,
+          "maximum": 9496
+        },
+        "encap_kcycles": {
+          "median": 781,
+          "minimum": 779,
+          "maximum": 1056
+        },
+        "decap_kcycles": {
+          "median": 321,
+          "minimum": 319,
+          "maximum": 372
+        }
+      }
+    }
+  }
+}

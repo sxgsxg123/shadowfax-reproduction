@@ -1,0 +1,75 @@
+gcc --version
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c akem/dh_akem.c -o akem/dh_akem.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c randombytes/randombytes.c -o randombytes/randombytes.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c randombytes/rng.c -o randombytes/rng.o
+gcc.exe (Rev6, Built by MSYS2 project) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c randombytes/sys_rand.c -o randombytes/sys_rand.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c hash/blake2b.c -o hash/blake2b.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c hash/blake2s.c -o hash/blake2s.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c hash/fips202.c -o hash/fips202.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c hash/hmac.c -o hash/hmac.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c hash/keccakf1600.c -o hash/keccakf1600.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/curve25519.c -o dh/curve25519.o
+In file included from randombytes/randombytes.c:3:
+randombytes/sys_rand.h:40:9: warning: 'RAND_URANDOM' redefined
+   40 | #define RAND_URANDOM   0
+      |         ^~~~~~~~~~~~
+randombytes/sys_rand.h:4:9: note: this is the location of the previous definition
+    4 | #define RAND_URANDOM 1
+      |         ^~~~~~~~~~~~
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_0.c -o dh/fe_0.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_1.c -o dh/fe_1.o
+cc1.exe: note: unrecognized command-line option '-Wno-unused-command-line-argument' may have been intended to silence earlier diagnostics
+In file included from randombytes/sys_rand.c:2:
+randombytes/sys_rand.h:40:9: warning: 'RAND_URANDOM' redefined
+   40 | #define RAND_URANDOM   0
+      |         ^~~~~~~~~~~~
+randombytes/sys_rand.h:4:9: note: this is the location of the previous definition
+    4 | #define RAND_URANDOM 1
+      |         ^~~~~~~~~~~~
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_add.c -o dh/fe_add.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_copy.c -o dh/fe_copy.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_cswap.c -o dh/fe_cswap.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_frombytes.c -o dh/fe_frombytes.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_invert.c -o dh/fe_invert.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_mul.c -o dh/fe_mul.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_mul121666.c -o dh/fe_mul121666.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_sq.c -o dh/fe_sq.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_sub.c -o dh/fe_sub.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/fe_tobytes.c -o dh/fe_tobytes.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/nike.c -o dh/nike.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c dh/scalarmult.c -o dh/scalarmult.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c akem/pq_akem.c -o akem/pq_akem.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c symmetric/aes.c -o symmetric/aes.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c ntru_gen/ng_fft.c -o ntru_gen/ng_fft.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c ntru_gen/ng_fxp.c -o ntru_gen/ng_fxp.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c ntru_gen/ng_mp31.c -o ntru_gen/ng_mp31.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c ntru_gen/ng_ntru.c -o ntru_gen/ng_ntru.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c ntru_gen/ng_poly.c -o ntru_gen/ng_poly.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c ntru_gen/ng_zint31.c -o ntru_gen/ng_zint31.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c GandalfMitaka/mitaka_sampler.c -o GandalfMitaka/mitaka_sampler.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c GandalfMitaka/rsig.c -o GandalfMitaka/rsig.o
+gcc -O3 -Wall -mcpu=native -mtune=native -Wno-unused-command-line-argument -DRSIG_INSTANCE=\"GandalfMitaka\" -DKEM_INSTANCE=\"BAT\" -Iakem -Irandombytes -Ihash -Isymmetric -Intru_gen -IBAT -IGandalfMitaka -Idh -c akem/h_akem.c -o akem/h_akem.o
+GandalfMitaka/rsig.c: In function 'Gandalf_sign_expanded_sk':
+GandalfMitaka/rsig.c:86:5: error: implicit declaration of function 'memmove' [-Wimplicit-function-declaration]
+   86 |     memmove(&s->salt, salt, SALT_BYTES);
+      |     ^~~~~~~
+GandalfMitaka/rsig.c:13:1: note: include '<string.h>' or provide a declaration of 'memmove'
+   12 | #include <assert.h>
+  +++ |+#include <string.h>
+   13 | 
+GandalfMitaka/rsig.c:86:5: warning: incompatible implicit declaration of built-in function 'memmove' [-Wbuiltin-declaration-mismatch]
+   86 |     memmove(&s->salt, salt, SALT_BYTES);
+      |     ^~~~~~~
+GandalfMitaka/rsig.c:86:5: note: include '<string.h>' or provide a declaration of 'memmove'
+At top level:
+cc1.exe: note: unrecognized command-line option '-Wno-unused-command-line-argument' may have been intended to silence earlier diagnostics
+make: *** [Makefile:114: GandalfMitaka/rsig.o] Error 1
+make: *** Waiting for unfinished jobs....
+randombytes/sys_rand.c:25: warning: ignoring '#pragma comment ' [-Wunknown-pragmas]
+   25 | #pragma comment(lib, "advapi32")
+cc1.exe: note: unrecognized command-line option '-Wno-unused-command-line-argument' may have been intended to silence earlier diagnostics

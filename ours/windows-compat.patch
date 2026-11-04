@@ -1,0 +1,136 @@
+diff --git a/src/GandalfMitaka/mitaka_sampler.c b/src/GandalfMitaka/mitaka_sampler.c
+index 5be860d..fe4ce2a 100644
+--- a/src/GandalfMitaka/mitaka_sampler.c
++++ b/src/GandalfMitaka/mitaka_sampler.c
+@@ -57,7 +57,7 @@ void normaldist(fpoly *vec)
+         uf[i] = 2*M_PI*(double)(u[i] & 0x1FFFFFFFFFFFFFul) * pow(2,-53);
+         vf[i] = 0.5 + (double)(v[i] & 0x1FFFFFFFFFFFFFul) * pow(2,-54);
+ 
+-        geom[i] = CMUX(63 + ffsll(e[2*i+1]), ffsll(e[2*i]) - 1,
++        geom[i] = CMUX(63 + __builtin_ffsll(e[2*i+1]), __builtin_ffsll(e[2*i]) - 1,
+             CZERO64(e[2*i]));
+ 
+         vf[i] = sqrt(N*(M_LN2*geom[i]-log(vf[i])));
+diff --git a/src/GandalfMitaka/rsig.c b/src/GandalfMitaka/rsig.c
+index b9557b9..3b34979 100644
+--- a/src/GandalfMitaka/rsig.c
++++ b/src/GandalfMitaka/rsig.c
+@@ -8,7 +8,7 @@
+ #include "pack_unpack.h"
+ #include "encode_decode.h"
+ 
+-#include <memory.h>
++#include <string.h>
+ #include <assert.h>
+ 
+ static
+diff --git a/src/Makefile b/src/Makefile
+index 3391bb5..f055205 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -125,22 +125,22 @@ $(LIBHAKEM): $(H_AKEM_OBJS)
+ 	$(AR) -r $@ $(H_AKEM_OBJS)
+ 
+ test_dh_akem: $(TEST_PATH)/test_dh_akem.c $(LIBDH)
+-	$(CC) $(DH_AKEM_CFLAGS) -L . -o $@ $< -l$(LIBDH_NAME)
++	$(CC) $(DH_AKEM_CFLAGS) -L . -o $@ $< -l$(LIBDH_NAME) -ladvapi32
+ 
+ speed_dh_akem: $(SPEED_PATH)/speed_dh_akem.c $(LIBDH) $(CYCL_HEADER) $(CYCL_SOURCE)
+-	$(CC) $(DH_AKEM_CFLAGS) -L . -I$(CYCL_PATH) $(CYCL_SOURCE) -o $@ $< -l$(LIBDH_NAME)
++	$(CC) $(DH_AKEM_CFLAGS) -L . -I$(CYCL_PATH) $(CYCL_SOURCE) -o $@ $< -l$(LIBDH_NAME) -ladvapi32
+ 
+ test_pq_akem: $(TEST_PATH)/test_pq_akem.c $(LIBPQAKEM)
+-	$(CC) $(PQ_AKEM_CFLAGS) -L . -o $@ $< -l$(LIBPQAKEM_NAME) -lm
++	$(CC) $(PQ_AKEM_CFLAGS) -L . -o $@ $< -l$(LIBPQAKEM_NAME) -lm -ladvapi32
+ 
+ speed_pq_akem: $(SPEED_PATH)/speed_pq_akem.c $(LIBPQAKEM) $(CYCL_HEADER) $(CYCL_SOURCE)
+-	$(CC) $(PQ_AKEM_CFLAGS) -L . -I$(CYCL_PATH) $(CYCL_SOURCE) -o $@ $< -l$(LIBPQAKEM_NAME) -lm
++	$(CC) $(PQ_AKEM_CFLAGS) -L . -I$(CYCL_PATH) $(CYCL_SOURCE) -o $@ $< -l$(LIBPQAKEM_NAME) -lm -ladvapi32 -Wl,--stack,16777216
+ 
+ test_h_akem: $(TEST_PATH)/test_h_akem.c $(LIBHAKEM)
+-	$(CC) $(H_AKEM_CFLAGS) -L . -o $@ $< -l$(LIBHAKEM_NAME) -lm
++	$(CC) $(H_AKEM_CFLAGS) -L . -o $@ $< -l$(LIBHAKEM_NAME) -lm -ladvapi32
+ 
+ speed_h_akem: $(SPEED_PATH)/speed_h_akem.c $(LIBHAKEM) $(CYCL_HEADER) $(CYCL_SOURCE)
+-	$(CC) $(H_AKEM_CFLAGS) -L . -I$(CYCL_PATH) $(CYCL_SOURCE) -o $@ $<  -l$(LIBHAKEM_NAME) -lm
++	$(CC) $(H_AKEM_CFLAGS) -L . -I$(CYCL_PATH) $(CYCL_SOURCE) -o $@ $<  -l$(LIBHAKEM_NAME) -lm -ladvapi32 -Wl,--stack,16777216
+ 
+ .PHONY: clean
+ 
+diff --git a/src/cycles/cycles.h b/src/cycles/cycles.h
+index 3c64f22..510a412 100644
+--- a/src/cycles/cycles.h
++++ b/src/cycles/cycles.h
+@@ -4,6 +4,7 @@
+ #include <stdio.h>
+ #include <stdint.h>
+ #include <stddef.h>
++#include <inttypes.h>
+ 
+ void init_counter(void);
+ uint64_t get_cycle(void);
+@@ -11,11 +12,7 @@ uint64_t get_cycle(void);
+ #define TO_THOUSANDS(a) ((a + 500) / 1000)
+ #define WRAP_WITH_UNIT(a) TO_THOUSANDS(a)
+ 
+-#ifdef __APPLE__
+-#define CYCLE_TYPE "%lld"
+-#else
+-#define CYCLE_TYPE "%ld"
+-#endif
++#define CYCLE_TYPE "%" PRIu64
+ 
+ #ifdef __AVERAGE__
+ 
+@@ -34,7 +31,9 @@ uint64_t get_cycle(void);
+ #include <stdlib.h>
+ 
+ static int cmp_uint64(const void *a, const void *b){
+-    return ((*((const uint64_t*)a)) - ((*((const uint64_t*)b))));
++    uint64_t x = *(const uint64_t *)a;
++    uint64_t y = *(const uint64_t *)b;
++    return (x > y) - (x < y);
+ }
+ 
+ #define LOOP_INIT(__clock0, __clock1) {}
+diff --git a/src/ntru_gen/ng_fxp.h b/src/ntru_gen/ng_fxp.h
+index 12ac47a..0bd744a 100644
+--- a/src/ntru_gen/ng_fxp.h
++++ b/src/ntru_gen/ng_fxp.h
+@@ -2,7 +2,7 @@
+ #define NG_FXP_H
+ 
+ #include <stdint.h>
+-#include <memory.h>
++#include <string.h>
+ #include <math.h>
+ 
+ /* ====================================================================== */
+diff --git a/src/randombytes/sys_rand.c b/src/randombytes/sys_rand.c
+index 3d01e32..c6d4b91 100644
+--- a/src/randombytes/sys_rand.c
++++ b/src/randombytes/sys_rand.c
+@@ -19,7 +19,9 @@
+ #endif
+ #if RAND_WIN32
+ #include <windows.h>
+-#include <wincrypt.h>
++#define SystemFunction036 NTAPI SystemFunction036
++#include <NTSecAPI.h>
++#undef SystemFunction036
+ #pragma comment(lib, "advapi32")
+ #endif
+ 
+diff --git a/src/randombytes/sys_rand.h b/src/randombytes/sys_rand.h
+index c3fd6c2..6b08637 100644
+--- a/src/randombytes/sys_rand.h
++++ b/src/randombytes/sys_rand.h
+@@ -1,8 +1,6 @@
+ #ifndef SYS_RAND_H
+ #define SYS_RAND_H
+ 
+-#define RAND_URANDOM 1
+-
+ #include <stddef.h>
+ 
+ /*

@@ -1,0 +1,26 @@
+mlkem-GandalfFalcon Hybrid AKEM public key bytes: 1728
+mlkem-GandalfFalcon Hybrid AKEM secret key bytes: 3712
+mlkem-GandalfFalcon Hybrid AKEM ciphertext bytes: 2076
+h_akem_keygen median cycles:
+\providecommand\mlkemGandalfFalconHybridAKEMKeyGen{3953}
+h_akem_encap median cycles:
+\providecommand\mlkemGandalfFalconHybridAKEMEnc{647}
+h_akem_decap median cycles:
+\providecommand\mlkemGandalfFalconHybridAKEMDec{241}
+nike_keygen median cycles:
+70
+nike_sdk median cycles:
+75
+kem_keygen median cycles:
+29
+kem_encap median cycles:
+32
+kem_decap median cycles:
+40
+sign_keygen median cycles:
+\providecommand\GandalfFalconGandalfRSigKeyGen{3807}
+MLEN = 1568
+Gandalf_sign median cycles:
+\providecommand\GandalfFalconGandalfRSigSig{374}
+Gandalf_verify median cycles:
+\providecommand\GandalfFalconGandalfRSigVrfy{35}

@@ -1,0 +1,26 @@
+BAT-GandalfMitaka Hybrid AKEM public key bytes: 1449
+BAT-GandalfMitaka Hybrid AKEM secret key bytes: 5033
+BAT-GandalfMitaka Hybrid AKEM ciphertext bytes: 1781
+h_akem_keygen median cycles:
+\providecommand\BATGandalfMitakaHybridAKEMKeyGen{8578}
+h_akem_encap median cycles:
+\providecommand\BATGandalfMitakaHybridAKEMEnc{779}
+h_akem_decap median cycles:
+\providecommand\BATGandalfMitakaHybridAKEMDec{321}
+nike_keygen median cycles:
+77
+nike_sdk median cycles:
+77
+kem_keygen median cycles:
+3725
+kem_encap median cycles:
+13
+kem_decap median cycles:
+91
+sign_keygen median cycles:
+\providecommand\GandalfMitakaGandalfRSigKeyGen{4123}
+MLEN = 994
+Gandalf_sign median cycles:
+\providecommand\GandalfMitakaGandalfRSigSig{507}
+Gandalf_verify median cycles:
+\providecommand\GandalfMitakaGandalfRSigVrfy{36}
